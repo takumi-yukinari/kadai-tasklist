@@ -11,14 +11,23 @@
             @endforeach
         </ul>
     @endif
-    {!! Form::model($task, ['route' => 'tasks.store']) !!}
-        {!! Form::label('status', 'status :') !!}
-        {!! Form::text('status') !!}
+        <div class="row">
+           <div class="col-xs-6">
+            {!! Form::model($task, ['route' => 'tasks.store']) !!}
 
-        {!! Form::label('content', 'タスク:') !!}
-        {!! Form::text('content') !!}
+                <div class="form-group">
+                    {!! Form::label('title', 'タイトル:') !!}
+                    {!! Form::text('title', null, ['class' => 'form-control']) !!}
+                </div>
 
-        {!! Form::submit('投稿') !!}
+                <div class="form-group">
+                    {!! Form::label('content', 'タスク:') !!}
+                    {!! Form::text('content', null, ['class' => 'form-control']) !!}
+                </div>
 
-    {!! Form::close() !!}
+                {!! Form::submit('投稿', ['class' => 'btn btn-primary']) !!}
+
+            {!! Form::close() !!}
+          </div>
+    </div>
 @endsection
